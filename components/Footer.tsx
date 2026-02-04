@@ -1,7 +1,18 @@
 import Link from "next/link";
+import { client } from "@/sanity/lib/client";
+import { contactPageQuery } from "@/sanity/lib/queries";
 
-export default function Footer() {
+async function getData() {
+  return client.fetch(contactPageQuery);
+}
+
+export default async function Footer() {
   const currentYear = new Date().getFullYear();
+  const contactPage = await getData();
+
+  const phone = contactPage?.phone || "(858) 344-0747";
+  const email = contactPage?.email || "nealegold@ngoldlaw.com";
+  const addressLines = (contactPage?.officeAddress || "402 W. Broadway, Suite 400\nSan Diego, CA 92101").split('\n');
 
   return (
     <footer className="bg-sage-dark text-white">
@@ -43,16 +54,17 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-sage-light">
-              <li>402 W. Broadway, Suite 400</li>
-              <li>San Diego, CA 92101</li>
+              {addressLines.map((line, i) => (
+                <li key={i}>{line}</li>
+              ))}
               <li>
-                <a href="tel:858-344-0747" className="hover:text-white transition-colors">
-                  (858) 344-0747
+                <a href={`tel:${phone.replace(/[^\d]/g, '')}`} className="hover:text-white transition-colors">
+                  {phone}
                 </a>
               </li>
               <li>
-                <a href="mailto:nealegold@ngoldlaw.com" className="hover:text-white transition-colors">
-                  nealegold@ngoldlaw.com
+                <a href={`mailto:${email}`} className="hover:text-white transition-colors">
+                  {email}
                 </a>
               </li>
             </ul>

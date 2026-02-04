@@ -1,39 +1,29 @@
 import Link from "next/link";
 import PracticeAreaCard from "@/components/PracticeAreaCard";
+import { client } from "@/sanity/lib/client";
+import { homePageQuery, featuredPracticeAreasQuery } from "@/sanity/lib/queries";
 
-const featuredAreas = [
-  {
-    title: "Appeals",
-    description:
-      "Reviewing trial court records, selecting appellate issues, and presenting compelling arguments.",
-    href: "/practice-areas#appeals",
-  },
-  {
-    title: "Writs",
-    description:
-      "Original or statutory writs for extraordinary and emergency relief from the Court of Appeal.",
-    href: "/practice-areas#writs",
-  },
-  {
-    title: "Legal Research & Motion",
-    description:
-      "Thorough research and preparation of pleadings for appellate preservation.",
-    href: "/practice-areas#research",
-  },
-];
+async function getData() {
+  const [homePage, practiceAreas] = await Promise.all([
+    client.fetch(homePageQuery),
+    client.fetch(featuredPracticeAreasQuery),
+  ]);
+  return { homePage, practiceAreas };
+}
 
-export default function Home() {
+export default async function Home() {
+  const { homePage, practiceAreas } = await getData();
+
   return (
     <div>
       {/* Hero Section */}
       <section className="bg-sage py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl text-white mb-6">
-            Appellate Litigation in California
+            {homePage?.heroHeadline || "Appellate Litigation in California"}
           </h1>
           <p className="text-lg text-sage-light mb-8 max-w-2xl mx-auto">
-            Over 800 appeals litigated. Practicing in all six California appellate
-            districts. Recognized as a Super Lawyer and recipient of the Paul Bell Award.
+            {homePage?.heroDescription || "Over 800 appeals litigated. Practicing in all six California appellate districts."}
           </p>
           <Link
             href="/contact"
@@ -51,14 +41,22 @@ export default function Home() {
             How I Can Help
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredAreas.map((area) => (
-              <PracticeAreaCard
-                key={area.title}
-                title={area.title}
-                description={area.description}
-                href={area.href}
-              />
-            ))}
+            {practiceAreas?.length > 0 ? (
+              practiceAreas.map((area: any) => (
+                <PracticeAreaCard
+                  key={area._id}
+                  title={area.title}
+                  description={area.description}
+                  href={`/practice-areas#${area.slug}`}
+                />
+              ))
+            ) : (
+              <>
+                <PracticeAreaCard title="Appeals" description="Reviewing trial court records and presenting compelling arguments." href="/practice-areas#appeals" />
+                <PracticeAreaCard title="Writs" description="Extraordinary and emergency relief from the Court of Appeal." href="/practice-areas#writs" />
+                <PracticeAreaCard title="Legal Research" description="Thorough research and preparation of pleadings." href="/practice-areas#research" />
+              </>
+            )}
           </div>
           <div className="text-center mt-10">
             <Link
@@ -75,13 +73,10 @@ export default function Home() {
       <section className="bg-cream-dark py-16 sm:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl text-charcoal mb-6">
-            Appellate Excellence Since 2007
+            {homePage?.aboutHeading || "Appellate Excellence Since 2007"}
           </h2>
           <p className="text-charcoal-light mb-8">
-            I combine appellate intellectual rigor with empathic problem-solving
-            skills to deliver outstanding representation. Specializing in civil,
-            dependency, and delinquency appeals, I work with clients across
-            California to achieve the best possible outcomes.
+            {homePage?.aboutText || "I combine appellate intellectual rigor with empathic problem-solving skills to deliver outstanding representation."}
           </p>
           <Link
             href="/about"

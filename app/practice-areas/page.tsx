@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { client } from "@/sanity/lib/client";
+import { practiceAreasQuery } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
   title: "Practice Areas | Neale Gold - Appellate Attorney",
@@ -7,34 +9,22 @@ export const metadata: Metadata = {
     "Appellate litigation services including appeals, writs, legal research, and creative problem solving in California.",
 };
 
-const practiceAreas = [
-  {
-    id: "appeals",
-    title: "Appeals",
-    description:
-      "Neale will review the trial court record, select appellate issues for review, research and write appellate briefs, present oral argument, and file petitions for rehearing, or review in the California Supreme Court.",
-  },
-  {
-    id: "writs",
-    title: "Statutory & Common Law Writs",
-    description:
-      "Neale will prepare original or statutory writs where an appellate remedy is unavailable and the client is seeking extraordinary and emergency relief from the Court of Appeal, concerning a trial court order.",
-  },
-  {
-    id: "research",
-    title: "Legal Research, Law, & Motion",
-    description:
-      "Neale will provide research on any relevant legal issue, assist in setting up an issue in trial court proceedings for appropriate appellate preservation, and prepare relevant pleadings or motions.",
-  },
-  {
-    id: "problem-solving",
-    title: "Creative Problem Solving",
-    description:
-      "Neale will use the combination of her appellate intellectual rigor with her empathic social work skills to assist clients with creative problem solving, sometimes outside the box of litigating an appeal.",
-  },
-];
+async function getData() {
+  return client.fetch(practiceAreasQuery);
+}
 
-export default function PracticeAreas() {
+export default async function PracticeAreas() {
+  const practiceAreas = await getData();
+
+  const defaultAreas = [
+    { slug: "appeals", title: "Appeals", description: "Neale will review the trial court record, select appellate issues for review, research and write appellate briefs, present oral argument, and file petitions for rehearing, or review in the California Supreme Court." },
+    { slug: "writs", title: "Statutory & Common Law Writs", description: "Neale will prepare original or statutory writs where an appellate remedy is unavailable and the client is seeking extraordinary and emergency relief from the Court of Appeal." },
+    { slug: "research", title: "Legal Research, Law, & Motion", description: "Neale will provide research on any relevant legal issue, assist in setting up an issue in trial court proceedings for appropriate appellate preservation." },
+    { slug: "problem-solving", title: "Creative Problem Solving", description: "Neale will use the combination of her appellate intellectual rigor with her empathic social work skills to assist clients with creative problem solving." },
+  ];
+
+  const areas = practiceAreas?.length > 0 ? practiceAreas : defaultAreas;
+
   return (
     <div>
       {/* Header */}
@@ -51,10 +41,10 @@ export default function PracticeAreas() {
       <section className="py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-12">
-            {practiceAreas.map((area) => (
+            {areas.map((area: any) => (
               <div
-                key={area.id}
-                id={area.id}
+                key={area.slug || area._id}
+                id={area.slug}
                 className="scroll-mt-24"
               >
                 <h2 className="text-2xl text-sage-dark mb-3">{area.title}</h2>

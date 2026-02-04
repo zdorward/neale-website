@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import { client } from "@/sanity/lib/client";
+import { contactPageQuery } from "@/sanity/lib/queries";
 
 export const metadata: Metadata = {
   title: "Contact | Neale Gold - Appellate Attorney",
@@ -7,7 +9,18 @@ export const metadata: Metadata = {
     "Contact Neale Gold for a consultation about your appellate matter in California.",
 };
 
-export default function Contact() {
+async function getData() {
+  return client.fetch(contactPageQuery);
+}
+
+export default async function Contact() {
+  const contactPage = await getData();
+
+  const address = contactPage?.officeAddress || "402 W. Broadway\nSuite 400\nSan Diego, California 92101";
+  const phone = contactPage?.phone || "(858) 344-0747";
+  const email = contactPage?.email || "nealegold@ngoldlaw.com";
+  const confidentiality = contactPage?.confidentialityNote || "All communications are treated with the utmost confidentiality. The information you share will only be used to evaluate your case and will not be disclosed to third parties.";
+
   return (
     <div>
       {/* Header */}
@@ -15,7 +28,7 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl text-white">Contact</h1>
           <p className="text-sage-light mt-4">
-            Let&apos;s discuss your appeal
+            {contactPage?.headerText || "Let's discuss your appeal"}
           </p>
         </div>
       </section>
@@ -37,30 +50,28 @@ export default function Contact() {
               <div className="space-y-6">
                 <div>
                   <h3 className="font-semibold text-charcoal mb-1">Office</h3>
-                  <p className="text-charcoal-light">
-                    402 W. Broadway<br />
-                    Suite 400<br />
-                    San Diego, California 92101
+                  <p className="text-charcoal-light whitespace-pre-line">
+                    {address}
                   </p>
                 </div>
 
                 <div>
                   <h3 className="font-semibold text-charcoal mb-1">Phone</h3>
                   <a
-                    href="tel:858-344-0747"
+                    href={`tel:${phone.replace(/[^\d]/g, '')}`}
                     className="text-sage hover:text-sage-dark transition-colors"
                   >
-                    (858) 344-0747
+                    {phone}
                   </a>
                 </div>
 
                 <div>
                   <h3 className="font-semibold text-charcoal mb-1">Email</h3>
                   <a
-                    href="mailto:nealegold@ngoldlaw.com"
+                    href={`mailto:${email}`}
                     className="text-sage hover:text-sage-dark transition-colors"
                   >
-                    nealegold@ngoldlaw.com
+                    {email}
                   </a>
                 </div>
 
@@ -69,10 +80,7 @@ export default function Contact() {
                     Confidentiality
                   </h3>
                   <p className="text-charcoal-light text-sm">
-                    All communications are treated with the utmost
-                    confidentiality. The information you share will only be
-                    used to evaluate your case and will not be disclosed to
-                    third parties.
+                    {confidentiality}
                   </p>
                 </div>
               </div>
