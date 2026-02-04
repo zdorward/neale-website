@@ -42,6 +42,7 @@ export default async function About() {
                 width={192}
                 height={192}
                 className="object-cover w-full h-full"
+                unoptimized
               />
             ) : (
               <span className="text-charcoal-light text-sm">Photo</span>
