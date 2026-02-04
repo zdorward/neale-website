@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact | Neale Gold - Family Law Attorney",
+  title: "Contact | Neale Gold - Appellate Attorney",
   description:
-    "Contact Neale Gold for a consultation about your family law matter in San Diego.",
+    "Contact Neale Gold for a consultation about your appellate matter in California.",
 };
 
 export default function Contact() {
@@ -15,7 +15,7 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl text-white">Contact</h1>
           <p className="text-sage-light mt-4">
-            Let&apos;s discuss your situation
+            Let&apos;s discuss your appeal
           </p>
         </div>
       </section>
@@ -36,19 +36,31 @@ export default function Contact() {
 
               <div className="space-y-6">
                 <div>
-                  <h3 className="font-semibold text-charcoal mb-1">Location</h3>
+                  <h3 className="font-semibold text-charcoal mb-1">Office</h3>
                   <p className="text-charcoal-light">
-                    San Diego, California
+                    402 W. Broadway<br />
+                    Suite 400<br />
+                    San Diego, California 92101
                   </p>
+                </div>
+
+                <div>
+                  <h3 className="font-semibold text-charcoal mb-1">Phone</h3>
+                  <a
+                    href="tel:858-344-0747"
+                    className="text-sage hover:text-sage-dark transition-colors"
+                  >
+                    (858) 344-0747
+                  </a>
                 </div>
 
                 <div>
                   <h3 className="font-semibold text-charcoal mb-1">Email</h3>
                   <a
-                    href="mailto:contact@nealegold.com"
+                    href="mailto:nealegold@ngoldlaw.com"
                     className="text-sage hover:text-sage-dark transition-colors"
                   >
-                    contact@nealegold.com
+                    nealegold@ngoldlaw.com
                   </a>
                 </div>
 

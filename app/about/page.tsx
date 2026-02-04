@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About | Neale Gold - Family Law Attorney",
+  title: "About | Neale Gold - Appellate Attorney",
   description:
-    "Learn about Neale Gold's background, experience, and approach to family law in San Diego.",
+    "Learn about Neale Gold's background, experience, and approach to appellate litigation in California.",
 };
 
 export default function About() {
@@ -26,35 +26,48 @@ export default function About() {
           </div>
 
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-2xl text-charcoal mb-4">
-              Dedicated to Helping Families Navigate Change
-            </h2>
-            <p className="text-charcoal-light mb-6">
-              I understand that when you&apos;re facing a family law matter,
-              you&apos;re going through one of the most challenging times in
-              your life. Whether you&apos;re considering divorce, working
-              through custody arrangements, or addressing support issues, you
-              deserve an attorney who listens, understands, and advocates for
-              your best interests.
+            <p className="text-charcoal-light mb-6 text-lg">
+              Neale Gold is the principal attorney at Law Offices of Neale Gold,
+              Professional Corporation, an appellate law firm in San Diego, California.
+              She specializes in civil, dependency, and delinquency appeals, working
+              with, and for, individual clients across the entire state.
             </p>
 
-            <h2 className="text-2xl text-charcoal mb-4 mt-10">My Approach</h2>
+            <h2 className="text-2xl text-charcoal mb-4 mt-10">
+              Experience & Recognition
+            </h2>
             <p className="text-charcoal-light mb-6">
-              I believe in a client-centered approach that focuses on finding
-              practical solutions while minimizing conflict when possible.
-              Every family is unique, and I take the time to understand your
-              specific situation and goals before developing a strategy
-              tailored to your needs.
+              Neale practices in all six appellate districts within California, and
+              has previously been a member of the 9th Circuit Bar. She is a member
+              of the United States Supreme Court Bar. She has maintained a busy
+              appellate practice since 2007, having litigated over 800 appeals.
+            </p>
+            <p className="text-charcoal-light mb-6">
+              Neale specializes in reviewing trial court records, researching and
+              analyzing the law, and preparing appellate motions and briefs. She has
+              been recognized for her outstanding representation on appeal, including
+              the honor of receiving the prestigious Paul Bell Award. Starting in 2023
+              to present, Neale was selected as a &quot;Super Lawyer,&quot; and given
+              the designation as a top rated appellate attorney.
             </p>
 
             <h2 className="text-2xl text-charcoal mb-4 mt-10">
               Education & Admissions
             </h2>
             <ul className="text-charcoal-light mb-6 list-disc list-inside space-y-2">
-              <li>Juris Doctor, [Law School]</li>
-              <li>Bachelor of Arts, [University]</li>
-              <li>Admitted to the California State Bar</li>
-              <li>Member, San Diego County Bar Association</li>
+              <li>J.D., California Western School of Law, 2003</li>
+              <li>Member, United States Supreme Court Bar</li>
+              <li>Admitted to all six California Appellate Districts</li>
+              <li>Former Member, 9th Circuit Bar</li>
+            </ul>
+
+            <h2 className="text-2xl text-charcoal mb-4 mt-10">
+              Awards & Recognition
+            </h2>
+            <ul className="text-charcoal-light mb-6 list-disc list-inside space-y-2">
+              <li>Paul Bell Award recipient</li>
+              <li>Super Lawyer designation (2023–present)</li>
+              <li>Top Rated Appellate Attorney</li>
             </ul>
           </div>
 

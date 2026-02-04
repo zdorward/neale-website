@@ -2,41 +2,35 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Practice Areas | Neale Gold - Family Law Attorney",
+  title: "Practice Areas | Neale Gold - Appellate Attorney",
   description:
-    "Family law services including divorce, child custody, support, property division, and prenuptial agreements in San Diego.",
+    "Appellate litigation services including appeals, writs, legal research, and creative problem solving in California.",
 };
 
 const practiceAreas = [
   {
-    id: "divorce",
-    title: "Divorce & Legal Separation",
+    id: "appeals",
+    title: "Appeals",
     description:
-      "Whether you're considering divorce or legal separation, I'll guide you through every step of the process. I work to protect your interests while seeking fair resolutions on property division, support, and custody matters.",
+      "Neale will review the trial court record, select appellate issues for review, research and write appellate briefs, present oral argument, and file petitions for rehearing, or review in the California Supreme Court.",
   },
   {
-    id: "custody",
-    title: "Child Custody & Visitation",
+    id: "writs",
+    title: "Statutory & Common Law Writs",
     description:
-      "Your relationship with your children is paramount. I help parents establish custody arrangements that serve the best interests of the children while protecting parental rights. This includes legal custody, physical custody, and visitation schedules.",
+      "Neale will prepare original or statutory writs where an appellate remedy is unavailable and the client is seeking extraordinary and emergency relief from the Court of Appeal, concerning a trial court order.",
   },
   {
-    id: "support",
-    title: "Child & Spousal Support",
+    id: "research",
+    title: "Legal Research, Law, & Motion",
     description:
-      "Support matters require careful attention to both parties' financial circumstances. I assist with establishing, modifying, or enforcing child support and spousal support orders to ensure fair outcomes.",
+      "Neale will provide research on any relevant legal issue, assist in setting up an issue in trial court proceedings for appropriate appellate preservation, and prepare relevant pleadings or motions.",
   },
   {
-    id: "property",
-    title: "Property Division",
+    id: "problem-solving",
+    title: "Creative Problem Solving",
     description:
-      "California is a community property state, which affects how assets and debts are divided in divorce. I help clients understand their rights and work toward equitable division of marital property.",
-  },
-  {
-    id: "prenup",
-    title: "Prenuptial & Postnuptial Agreements",
-    description:
-      "Planning ahead can protect both parties in a marriage. I draft and review prenuptial and postnuptial agreements that clearly define property rights and expectations.",
+      "Neale will use the combination of her appellate intellectual rigor with her empathic social work skills to assist clients with creative problem solving, sometimes outside the box of litigating an appeal.",
   },
 ];
 
@@ -48,7 +42,7 @@ export default function PracticeAreas() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl text-white">Practice Areas</h1>
           <p className="text-sage-light mt-4">
-            Comprehensive family law services in San Diego
+            Appellate litigation services throughout California
           </p>
         </div>
       </section>
@@ -71,11 +65,11 @@ export default function PracticeAreas() {
 
           <div className="text-center mt-16 p-8 bg-cream-dark rounded-lg">
             <h3 className="text-xl text-charcoal mb-4">
-              Questions About Your Situation?
+              Questions About Your Appeal?
             </h3>
             <p className="text-charcoal-light mb-6">
               Every case is unique. Contact me to discuss how I can help with
-              your specific family law matter.
+              your appellate matter.
             </p>
             <Link
               href="/contact"

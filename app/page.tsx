@@ -3,22 +3,22 @@ import PracticeAreaCard from "@/components/PracticeAreaCard";
 
 const featuredAreas = [
   {
-    title: "Divorce & Separation",
+    title: "Appeals",
     description:
-      "Guiding you through the legal process with compassion and clarity.",
-    href: "/practice-areas#divorce",
+      "Reviewing trial court records, selecting appellate issues, and presenting compelling arguments.",
+    href: "/practice-areas#appeals",
   },
   {
-    title: "Child Custody",
+    title: "Writs",
     description:
-      "Protecting your relationship with your children through fair custody arrangements.",
-    href: "/practice-areas#custody",
+      "Original or statutory writs for extraordinary and emergency relief from the Court of Appeal.",
+    href: "/practice-areas#writs",
   },
   {
-    title: "Support Matters",
+    title: "Legal Research & Motion",
     description:
-      "Ensuring fair child support and spousal support agreements.",
-    href: "/practice-areas#support",
+      "Thorough research and preparation of pleadings for appellate preservation.",
+    href: "/practice-areas#research",
   },
 ];
 
@@ -29,11 +29,11 @@ export default function Home() {
       <section className="bg-sage py-20 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl sm:text-5xl text-white mb-6">
-            Compassionate Family Law Representation in San Diego
+            Appellate Litigation in California
           </h1>
           <p className="text-lg text-sage-light mb-8 max-w-2xl mx-auto">
-            Navigating family legal matters is never easy. I provide thoughtful,
-            personalized guidance to help you move forward with confidence.
+            Over 800 appeals litigated. Practicing in all six California appellate
+            districts. Recognized as a Super Lawyer and recipient of the Paul Bell Award.
           </p>
           <Link
             href="/contact"
@@ -75,13 +75,13 @@ export default function Home() {
       <section className="bg-cream-dark py-16 sm:py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl text-charcoal mb-6">
-            A Different Approach to Family Law
+            Appellate Excellence Since 2007
           </h2>
           <p className="text-charcoal-light mb-8">
-            I believe that even in difficult times, the legal process can be
-            handled with dignity and respect. My goal is to help you find
-            solutions that work for your family while protecting your rights
-            and interests.
+            I combine appellate intellectual rigor with empathic problem-solving
+            skills to deliver outstanding representation. Specializing in civil,
+            dependency, and delinquency appeals, I work with clients across
+            California to achieve the best possible outcomes.
           </p>
           <Link
             href="/about"

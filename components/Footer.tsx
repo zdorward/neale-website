@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <h3 className="font-serif text-xl mb-4">Neale Gold</h3>
             <p className="text-sage-light text-sm">
-              Family Law Attorney
+              Appellate Attorney
               <br />
               San Diego, California
             </p>
@@ -43,10 +43,16 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-sage-light">
-              <li>San Diego, CA</li>
+              <li>402 W. Broadway, Suite 400</li>
+              <li>San Diego, CA 92101</li>
               <li>
-                <a href="mailto:contact@nealegold.com" className="hover:text-white transition-colors">
-                  contact@nealegold.com
+                <a href="tel:858-344-0747" className="hover:text-white transition-colors">
+                  (858) 344-0747
+                </a>
+              </li>
+              <li>
+                <a href="mailto:nealegold@ngoldlaw.com" className="hover:text-white transition-colors">
+                  nealegold@ngoldlaw.com
                 </a>
               </li>
             </ul>
@@ -54,7 +60,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-sage mt-8 pt-8 text-center text-sm text-sage-light">
-          <p>&copy; {currentYear} Neale Gold. All rights reserved.</p>
+          <p>&copy; {currentYear} Law Offices of Neale Gold, P.C. All rights reserved.</p>
         </div>
       </div>
     </footer>

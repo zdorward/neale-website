@@ -17,9 +17,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Neale Gold | Family Law Attorney in San Diego",
+  title: "Neale Gold | Appellate Attorney in California",
   description:
-    "Compassionate family law representation in San Diego. Divorce, child custody, support, and more.",
+    "Experienced appellate litigation in California. Civil, dependency, and delinquency appeals. Over 800 cases litigated.",
 };
 
 export default function RootLayout({
