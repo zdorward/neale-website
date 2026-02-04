@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     "Learn about Neale Gold's background, experience, and approach to appellate litigation in California.",
 };
 
+export const revalidate = 0; // Always fetch fresh data
+
 async function getData() {
   return client.fetch(aboutPageQuery);
 }

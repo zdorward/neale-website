@@ -9,6 +9,8 @@ export const metadata: Metadata = {
     "Appellate litigation services including appeals, writs, legal research, and creative problem solving in California.",
 };
 
+export const revalidate = 0; // Always fetch fresh data
+
 async function getData() {
   return client.fetch(practiceAreasQuery);
 }

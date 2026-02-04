@@ -9,6 +9,8 @@ export const metadata: Metadata = {
     "Contact Neale Gold for a consultation about your appellate matter in California.",
 };
 
+export const revalidate = 0; // Always fetch fresh data
+
 async function getData() {
   return client.fetch(contactPageQuery);
 }

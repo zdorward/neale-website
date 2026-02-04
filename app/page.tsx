@@ -3,6 +3,8 @@ import PracticeAreaCard from "@/components/PracticeAreaCard";
 import { client } from "@/sanity/lib/client";
 import { homePageQuery, featuredPracticeAreasQuery } from "@/sanity/lib/queries";
 
+export const revalidate = 0; // Always fetch fresh data
+
 async function getData() {
   const [homePage, practiceAreas] = await Promise.all([
     client.fetch(homePageQuery),
