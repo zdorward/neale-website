@@ -54,7 +54,7 @@ export default async function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-sage-light">
-              {addressLines.map((line, i) => (
+              {addressLines.map((line: string, i: number) => (
                 <li key={i}>{line}</li>
               ))}
               <li>
