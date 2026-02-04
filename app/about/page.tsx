@@ -37,11 +37,11 @@ export default async function About() {
           <div className="w-48 h-48 bg-cream-dark rounded-full mx-auto mb-10 flex items-center justify-center overflow-hidden">
             {aboutPage?.photo ? (
               <Image
-                src={urlFor(aboutPage.photo).width(192).height(192).url()}
+                src={urlFor(aboutPage.photo).width(384).height(384).quality(100).url()}
                 alt="Neale Gold"
                 width={192}
                 height={192}
-                className="object-cover"
+                className="object-cover w-full h-full"
               />
             ) : (
               <span className="text-charcoal-light text-sm">Photo</span>
