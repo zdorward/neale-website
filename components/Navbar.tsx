@@ -19,8 +19,7 @@ export default function Navbar() {
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link href="/" className="font-serif text-2xl text-sage-dark">
-              <span className="md:hidden">Neale Gold</span>
-              <span className="hidden md:inline">Law Office of Neale Gold, PC</span>
+              Law Office of Neale Gold, PC
             </Link>
           </div>
 
