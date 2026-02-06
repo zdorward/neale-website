@@ -10,12 +10,31 @@ export default function ContactForm() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // For now, just show success message
-    // Later: integrate with email service (Formspree, Resend, etc.)
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setSubmitted(true);
+    } catch {
+      setError("Failed to send message. Please try again or contact directly via email.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -86,11 +105,18 @@ export default function ContactForm() {
         />
       </div>
 
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+          {error}
+        </div>
+      )}
+
       <button
         type="submit"
-        className="w-full bg-gold hover:bg-gold-dark text-white font-semibold py-3 px-8 rounded transition-colors"
+        disabled={isSubmitting}
+        className="w-full bg-gold hover:bg-gold-dark disabled:bg-gold/50 disabled:cursor-not-allowed text-white font-semibold py-3 px-8 rounded transition-colors"
       >
-        Send Message
+        {isSubmitting ? "Sending..." : "Send Message"}
       </button>
 
       <p className="text-xs text-charcoal-light text-center">
