@@ -39,11 +39,12 @@ export default async function Contact() {
       <section className="py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Contact Form */}
+            {/* Contact Form - temporarily disabled
             <div>
               <h2 className="text-2xl text-charcoal mb-6">Send a Message</h2>
               <ContactForm />
             </div>
+            */}
 
             {/* Contact Info */}
             <div>
