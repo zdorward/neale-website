@@ -19,7 +19,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Neale Gold | Appellate Attorney in California",
   description:
-    "Experienced appellate litigation in California. Civil, dependency, and delinquency appeals. Over 800 cases litigated.",
+    "Experienced appellate litigation in California. Civil appeals. Over 800 cases litigated.",
 };
 
 export default function RootLayout({
